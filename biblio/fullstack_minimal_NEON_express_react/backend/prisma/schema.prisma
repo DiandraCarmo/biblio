@@ -1,0 +1,49 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresq l"
+}
+
+model usuario {
+  cpf      Int      @id
+  email    String
+  nome     String
+  emprestimos emprestimo[] 
+}
+
+model livro {
+  id              Int       @id
+  isbn            String
+  titulo          String
+  sinopse         String
+  autorId         Int
+  autor           autor     @relation(fields: [autorId], references: [id])
+}
+
+model autor {
+  id              Int       @id
+  cpf             String
+  nome            String
+  nacionalidade   String
+  data_nascimento DateTime
+  biografia       String
+  livros livro[] 
+}
+
+model emprestimo {
+  id              Int     @id @default(autoincrement())  
+  inicio         DateTime
+  devolução      DateTime
+  livro
+  usuarioId       Int
+  usuario           usuario     @relation(fields: [usuarioId], references: [id])
+}
+
+

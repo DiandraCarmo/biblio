@@ -1,0 +1,19 @@
+{
+  "name": "fullstack_minimal",
+  "version": "1.0.0",
+  "description": "Um fullstackzinho",
+  "license": "ISC",
+  "author": "LordWenzel1978",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"  },
+  "dependencies": {
+    "@prisma/adapter-neon": "^7.8.0",
+    "@prisma/client": "^7.8.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "prisma": "^7.8.0"
+  }
+}
